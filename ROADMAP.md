@@ -35,14 +35,14 @@ Next step: Phase 4 (build engine — prepare/build/check/package pipeline).
 ## Phase 2 · Build Recipe Format <!-- phase:phase-2:recipes -->
 
 - [x] Define XBUILD specification — TOML-based build recipe format (#13)
-- [x] Define package section — name, version, release, description, url, license, arch
-- [x] Define dependencies section — depends, makedepends, checkdepends, optdepends
-- [x] Define source section — urls, sha256sums, sha512sums, patches
-- [x] Define build section — prepare, build, check, package functions as multiline strings
+- [x] Define package section — name, version, release, description, url, license, arch (#67)
+- [x] Define dependencies section — depends, makedepends, checkdepends, optdepends (#68)
+- [x] Define source section — urls, sha256sums, sha512sums, patches (#69)
+- [x] Define build section — prepare, build, check, package functions as multiline strings (#70)
 - [x] Implement XBUILD parser — deserialize TOML into Recipe struct with validation (#14)
 - [x] Implement PKGBUILD parser — parse Arch Linux PKGBUILD bash scripts for compatibility (#15)
-- [x] Extract variables — pkgname, pkgver, pkgrel, depends, makedepends, source, sha256sums
-- [x] Extract functions — prepare(), build(), check(), package()
+- [x] Extract variables — pkgname, pkgver, pkgrel, depends, makedepends, source, sha256sums (#71)
+- [x] Extract functions — prepare(), build(), check(), package() (#72)
 - [x] Implement recipe validation — check required fields, verify arch values, validate URLs (#16)
 - [x] Implement srcinfo generator — produce .SRCINFO-equivalent from parsed recipe (#17)
 - [x] Write recipe parser test suite — valid, invalid, edge-case XBUILD and PKGBUILD files (#18)
