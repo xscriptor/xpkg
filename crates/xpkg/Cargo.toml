@@ -1,0 +1,19 @@
+[package]
+name = "xpkg"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+description = "CLI frontend for the xpkg package builder"
+
+[[bin]]
+name = "xpkg"
+path = "src/main.rs"
+
+[dependencies]
+clap = { workspace = true }
+anyhow = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+xpkg-core = { workspace = true }

@@ -1,0 +1,41 @@
+[options]
+# Directory for build operations.
+builddir = "/tmp/xpkg-build"
+
+# Output directory for built packages.
+outdir = "."
+
+# Sign packages after building.
+sign = false
+
+# GPG key ID for signing (leave empty to use default key).
+sign_key = ""
+
+# Strip debug symbols from ELF binaries.
+strip_binaries = true
+
+# Compression method: "zstd" (default), "gzip", or "xz".
+compress = "zstd"
+
+# Compression level (1-22 for zstd, 1-9 for gzip/xz).
+compress_level = 19
+
+[environment]
+# Make flags passed to build systems.
+makeflags = "-j$(nproc)"
+
+# C compiler flags.
+cflags = "-march=x86-64 -O2 -pipe"
+
+# C++ compiler flags.
+cxxflags = "-march=x86-64 -O2 -pipe"
+
+# Linker flags.
+ldflags = ""
+
+[lint]
+# Run linting checks after building a package.
+enabled = true
+
+# Treat lint warnings as errors.
+strict = false

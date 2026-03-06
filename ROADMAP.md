@@ -4,30 +4,31 @@
 
 ## Current Status
 
-Starting from scratch. This roadmap defines the full path from project
-scaffolding to a production-ready package builder that produces `.xp`
-packages for the X distribution and maintains compatibility with Arch
-Linux PKGBUILDs.
+Phase 0 complete — Cargo workspace scaffolded with xpkg (binary) and
+xpkg-core (library) crates, clippy/rustfmt configuration, LICENSE, CI
+pipeline, and example config file. Phase 1 in progress — CLI with 8
+subcommands and TOML configuration parser are implemented.
+Next step: Phase 2 (XBUILD recipe format and PKGBUILD compatibility).
 
 ---
 
 ## Phase 0 · Project Scaffolding <!-- phase:phase-0:scaffolding -->
 
-- [ ] Initialize Rust crate with cargo init (#1)
-- [ ] Configure Cargo workspace — xpkg (binary) and xpkg-core (library) (#2)
-- [ ] Add linter and formatter configuration — clippy.toml and rustfmt.toml (#3)
-- [ ] Set up CI pipeline — GitHub Actions for build, test, clippy, fmt (#4)
-- [ ] Add license and crate metadata — GPL-3.0-or-later, Cargo.toml fields (#5)
-- [ ] Create initial README with project overview (#6)
+- [x] Initialize Rust crate with cargo init (#1)
+- [x] Configure Cargo workspace — xpkg (binary) and xpkg-core (library) (#2)
+- [x] Add linter and formatter configuration — clippy.toml and rustfmt.toml (#3)
+- [x] Set up CI pipeline — GitHub Actions for build, test, clippy, fmt (#4)
+- [x] Add license and crate metadata — GPL-3.0-or-later, Cargo.toml fields (#5)
+- [x] Create initial README with project overview (#6)
 
 ## Phase 1 · CLI and Configuration <!-- phase:phase-1:cli -->
 
-- [ ] Implement CLI interface with clap — build, lint, new, srcinfo, info, verify, repo-add, repo-remove subcommands (#7)
-- [ ] Implement configuration parser — ~/.config/xpkg/xpkg.conf TOML format (#8)
-- [ ] Implement main.rs orchestration — logging, config loading, subcommand dispatch (#9)
-- [ ] Implement global flags — verbose, no-confirm, no-color, builddir, outdir (#10)
-- [ ] Implement xpkg new subcommand — generate XBUILD template for a given package name (#11)
-- [ ] Define CLI reference documentation — document all commands, flags, and usage patterns (#12)
+- [x] Implement CLI interface with clap — build, lint, new, srcinfo, info, verify, repo-add, repo-remove subcommands (#7)
+- [x] Implement configuration parser — ~/.config/xpkg/xpkg.conf TOML format (#8)
+- [x] Implement main.rs orchestration — logging, config loading, subcommand dispatch (#9)
+- [x] Implement global flags — verbose, no-confirm, no-color, builddir, outdir (#10)
+- [/] Implement xpkg new subcommand — generate XBUILD template for a given package name (#11)
+- [/] Define CLI reference documentation — document all commands, flags, and usage patterns (#12)
 
 ## Phase 2 · Build Recipe Format <!-- phase:phase-2:recipes -->
 

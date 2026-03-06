@@ -1,0 +1,24 @@
+# Auto-detect text files and normalize line endings
+* text=auto
+
+# Rust sources
+*.rs text diff=rust
+*.toml text
+*.lock text -diff
+
+# Shell / CI
+*.sh text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+
+# Documentation
+*.md text diff=markdown
+LICENSE text
+
+# Deny binary blobs by default
+*.xp binary
+*.pkg.tar.zst binary
+*.tar.gz binary
+*.tar.xz binary
+*.tar.zst binary
+*.sig binary
