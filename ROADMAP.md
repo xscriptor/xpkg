@@ -4,12 +4,13 @@
 
 ## Current Status
 
-Phases 0–2 complete — Cargo workspace scaffolded, CLI with 8 subcommands,
-TOML configuration parser, XBUILD parser, PKGBUILD parser, recipe
-validation, srcinfo generator, and `xpkg new` template generator are all
-implemented and tested (26 unit tests passing). CLI and XBUILD format are
-documented in `docs/`.
-Next step: Phase 3 (source management — downloading, checksums, extraction).
+Phases 0–3 complete — Cargo workspace scaffolded, CLI with 8 subcommands,
+TOML configuration parser, XBUILD/PKGBUILD parsers, recipe validation,
+srcinfo generator, `xpkg new`, HTTP downloader with retries, SHA-256/512
+checksum verification, archive extraction (tar.gz/xz/bz2/zst, zip), Git
+clone support, and source caching are all implemented and tested (72 unit
+tests passing). Documented in `docs/` (CLI, XBUILD, SOURCES).
+Next step: Phase 4 (build engine — prepare/build/check/package pipeline).
 
 ---
 
@@ -48,12 +49,12 @@ Next step: Phase 3 (source management — downloading, checksums, extraction).
 
 ## Phase 3 · Source Management <!-- phase:phase-3:sources -->
 
-- [ ] Implement source downloader — HTTP/HTTPS download with progress, retries, and resume (#19)
-- [ ] Implement checksum verification — SHA-256 and SHA-512 validation of downloaded sources (#20)
-- [ ] Implement source extraction — tar.gz, tar.xz, tar.bz2, tar.zst, zip archive handling (#21)
-- [ ] Implement Git source support — clone, checkout specific tags, commits, or branches (#22)
-- [ ] Implement source caching — avoid re-downloading unchanged sources (#23)
-- [ ] Write source management test suite — download, verify, extract, and cache tests (#24)
+- [x] Implement source downloader — HTTP/HTTPS download with progress, retries, and resume (#19)
+- [x] Implement checksum verification — SHA-256 and SHA-512 validation of downloaded sources (#20)
+- [x] Implement source extraction — tar.gz, tar.xz, tar.bz2, tar.zst, zip archive handling (#21)
+- [x] Implement Git source support — clone, checkout specific tags, commits, or branches (#22)
+- [x] Implement source caching — avoid re-downloading unchanged sources (#23)
+- [x] Write source management test suite — download, verify, extract, and cache tests (#24)
 
 ## Phase 4 · Build Engine <!-- phase:phase-4:build-engine -->
 

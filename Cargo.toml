@@ -26,5 +26,19 @@ thiserror = "2"
 tracing = "0.1"
 tracing-subscriber = { version = "0.3", features = ["env-filter", "fmt"] }
 
+# Networking
+ureq = "2"
+
+# Checksums
+sha2 = "0.10"
+
+# Archive extraction
+flate2 = "1"
+tar = "0.4"
+xz2 = "0.1"
+bzip2 = "0.5"
+zstd = "0.13"
+zip = "2"
+
 # Internal crates
 xpkg-core = { path = "crates/xpkg-core" }

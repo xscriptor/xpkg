@@ -6,6 +6,7 @@
 pub mod config;
 pub mod error;
 pub mod recipe;
+pub mod source;
 
 // Re-export key types for convenience.
 pub use config::XpkgConfig;
