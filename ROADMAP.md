@@ -68,11 +68,11 @@ Next step: Phase 4 (build engine — prepare/build/check/package pipeline).
 
 ## Phase 5 · Package Metadata Generation <!-- phase:phase-5:metadata -->
 
-- [ ] Implement .PKGINFO generator — name, version, description, dependencies, provides, conflicts, size (#32)
-- [ ] Implement .BUILDINFO generator — build environment, packager, builddate, installed packages (#33)
-- [ ] Implement .MTREE generator — file hashes, permissions, ownership, symlinks for integrity verification (#34)
-- [ ] Implement .INSTALL script support — pre_install, post_install, pre_upgrade, post_upgrade, pre_remove, post_remove (#35)
-- [ ] Write metadata generation test suite — validate generated files against specification (#36)
+- [x] Implement .PKGINFO generator — name, version, description, dependencies, provides, conflicts, size (#32)
+- [x] Implement .BUILDINFO generator — build environment, packager, builddate, installed packages (#33)
+- [x] Implement .MTREE generator — file hashes, permissions, ownership, symlinks for integrity verification (#34)
+- [x] Implement .INSTALL script support — pre_install, post_install, pre_upgrade, post_upgrade, pre_remove, post_remove (#35)
+- [x] Write metadata generation test suite — validate generated files against specification (#36)
 
 ## Phase 6 · Package Archive Creation <!-- phase:phase-6:archives -->
 

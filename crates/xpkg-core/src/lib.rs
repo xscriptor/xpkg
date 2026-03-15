@@ -6,6 +6,7 @@
 pub mod builder;
 pub mod config;
 pub mod error;
+pub mod metadata;
 pub mod recipe;
 pub mod source;
 
