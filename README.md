@@ -1,14 +1,15 @@
 <h1 align="center">xpkg</h1>
 
 <p align="center">
-  <strong>Package builder for the X distribution</strong><br>
+  <strong>Package builder for the X</strong><br>
   Build, lint, sign, and publish <code>.xp</code> packages — the developer companion to
   <a href="https://github.com/xscriptordev/xpm">xpm</a>.
 </p>
 
 <p align="center">
-  <img alt="License" src="https://img.shields.io/badge/license-GPL--3.0--or--later-blue">
-  <img alt="Rust" src="https://img.shields.io/badge/rust-2021-orange">
+    <img alt="Linux" src="https://xscriptordev.github.io/badges/os/linux.svg">
+    <img alt="Rust" src="https://xscriptordev.github.io/badges/languages/rust.svg">
+    <img alt="Alpha" src="https://xscriptordev.github.io/badges/status/alpha.svg">
 </p>
 
 ---
