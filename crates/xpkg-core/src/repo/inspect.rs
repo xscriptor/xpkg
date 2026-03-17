@@ -32,10 +32,8 @@ pub fn entry_from_package(package_path: &Path) -> XpkgResult<RepoEntry> {
         .map(|f| f.to_string_lossy().to_string())
         .unwrap_or_default();
 
-    let (version, release) = normalize_pkg_version(
-        field_one(&fields, "pkgver"),
-        map_first(&fields, "pkgrel"),
-    );
+    let (version, release) =
+        normalize_pkg_version(field_one(&fields, "pkgver"), map_first(&fields, "pkgrel"));
 
     Ok(RepoEntry {
         name: field_one(&fields, "pkgname"),
