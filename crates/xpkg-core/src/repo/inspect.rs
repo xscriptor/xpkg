@@ -32,10 +32,15 @@ pub fn entry_from_package(package_path: &Path) -> XpkgResult<RepoEntry> {
         .map(|f| f.to_string_lossy().to_string())
         .unwrap_or_default();
 
+    let (version, release) = normalize_pkg_version(
+        field_one(&fields, "pkgver"),
+        map_first(&fields, "pkgrel"),
+    );
+
     Ok(RepoEntry {
         name: field_one(&fields, "pkgname"),
-        version: field_one(&fields, "pkgver"),
-        release: field_one_or(&fields, "pkgrel", "1"),
+        version,
+        release,
         description: field_one(&fields, "pkgdesc"),
         url: field_one(&fields, "url"),
         arch: field_one_or(&fields, "arch", "x86_64"),
@@ -130,6 +135,29 @@ fn field_many(map: &FieldMap, key: &str) -> Vec<String> {
     map.get(key).cloned().unwrap_or_default()
 }
 
+fn map_first(map: &FieldMap, key: &str) -> Option<String> {
+    map.get(key).and_then(|v| v.first()).cloned()
+}
+
+fn normalize_pkg_version(pkgver_raw: String, pkgrel_raw: Option<String>) -> (String, String) {
+    if let Some(pkgrel) = pkgrel_raw {
+        // If pkgver already embeds "-pkgrel", strip it to avoid "1.0-1-1" in repo db.
+        let suffix = format!("-{pkgrel}");
+        if let Some(version) = pkgver_raw.strip_suffix(&suffix) {
+            return (version.to_string(), pkgrel);
+        }
+        return (pkgver_raw, pkgrel);
+    }
+
+    if let Some((version, rel)) = pkgver_raw.rsplit_once('-') {
+        if !version.is_empty() && !rel.is_empty() {
+            return (version.to_string(), rel.to_string());
+        }
+    }
+
+    (pkgver_raw, "1".to_string())
+}
+
 /// List all file paths contained in a `.xp` archive.
 ///
 /// Excludes metadata files (`.PKGINFO`, `.BUILDINFO`, `.MTREE`, `.INSTALL`).
@@ -195,6 +223,27 @@ depend = gcc-libs
         assert_eq!(field_one(&map, "pkgname"), "hello");
         assert_eq!(field_one(&map, "pkgver"), "1.0.0");
         assert_eq!(field_many(&map, "depend"), vec!["glibc", "gcc-libs"]);
+    }
+
+    #[test]
+    fn test_normalize_pkg_version_pkgver_with_release_only() {
+        let (version, release) = normalize_pkg_version("1.0.0-1".into(), None);
+        assert_eq!(version, "1.0.0");
+        assert_eq!(release, "1");
+    }
+
+    #[test]
+    fn test_normalize_pkg_version_pkgver_and_pkgrel() {
+        let (version, release) = normalize_pkg_version("1.0.0-1".into(), Some("1".into()));
+        assert_eq!(version, "1.0.0");
+        assert_eq!(release, "1");
+    }
+
+    #[test]
+    fn test_normalize_pkg_version_pkgver_without_release_defaults() {
+        let (version, release) = normalize_pkg_version("2.5.9".into(), None);
+        assert_eq!(version, "2.5.9");
+        assert_eq!(release, "1");
     }
 
     #[test]
