@@ -1,0 +1,37 @@
+[package]
+name = "xpkg"
+version = "0.1.0"
+release = 1
+description = "Package builder for X Distribution"
+url = "https://github.com/xscriptordev/xpkg"
+license = ["GPL-3.0-or-later"]
+arch = ["x86_64"]
+
+[dependencies]
+depends = ["glibc"]
+makedepends = ["cargo", "gcc", "rust"]
+
+[source]
+urls = []
+
+[build]
+prepare = """
+REPO_ROOT="$(cd "$startdir/../.." && pwd)"
+rm -rf "$SRCDIR/xpkg-src"
+mkdir -p "$SRCDIR/xpkg-src"
+cp -a "$REPO_ROOT/." "$SRCDIR/xpkg-src/"
+rm -rf "$SRCDIR/xpkg-src/target"
+"""
+
+build = """
+cd "$SRCDIR/xpkg-src"
+cargo build -p xpkg --release --locked
+"""
+
+package = """
+cd "$SRCDIR/xpkg-src"
+install -Dm755 "target/release/xpkg" "$PKGDIR/usr/bin/xpkg"
+install -Dm644 LICENSE "$PKGDIR/usr/share/licenses/xpkg/LICENSE"
+install -Dm644 README.md "$PKGDIR/usr/share/doc/xpkg/README.md"
+install -Dm644 etc/xpkg.conf.example "$PKGDIR/usr/share/xpkg/xpkg.conf.example"
+"""
