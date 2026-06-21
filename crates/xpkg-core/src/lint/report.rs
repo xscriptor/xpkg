@@ -31,7 +31,7 @@ fn format_human(result: &LintResult) -> String {
 
     // Group by severity (errors first, then warnings, then info).
     let mut sorted = result.diagnostics.clone();
-    sorted.sort_by(|a, b| b.severity.cmp(&a.severity));
+    sorted.sort_by_key(|b| std::cmp::Reverse(b.severity));
 
     for diag in &sorted {
         let icon = match diag.severity {
