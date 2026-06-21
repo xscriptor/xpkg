@@ -7,9 +7,11 @@
 </p>
 
 <p align="center">
-    <img alt="Linux" src="https://xscriptor.github.io/badges/os/linux.svg">
-    <img alt="Rust" src="https://xscriptor.github.io/badges/languages/rust.svg">
-    <img alt="Alpha" src="https://xscriptor.github.io/badges/status/alpha.svg">
+    <img alt="License" src="https://img.shields.io/badge/license-GPL--3.0--or--later-blue.svg">
+    <img alt="Rust" src="https://img.shields.io/badge/Rust-000000?logo=rust&logoColor=fff">
+    <img alt="Platform" src="https://img.shields.io/badge/Platform-Linux-FCC624?logo=linux&logoColor=000">
+    <img alt="Version" src="https://img.shields.io/github/v/release/xscriptor/xpkg?include_prereleases&label=version">
+    <img alt="CI" src="https://img.shields.io/github/actions/workflow/status/xscriptor/xpkg/ci.yml?branch=main&label=CI&logo=github">
 </p>
 
 ---
