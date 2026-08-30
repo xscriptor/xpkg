@@ -18,11 +18,11 @@ xpkg lint mypackage-1.0-1-x86_64.xp --strict   # Treat warnings as errors
 
 ## Severity Levels
 
-| Level | Icon | Behavior |
-|-------|------|----------|
-| **Error** | ✗ | Always causes lint failure (exit code 1) |
-| **Warning** | ⚠ | Causes failure only with `--strict` |
-| **Info** | ℹ | Informational — never causes failure |
+| Level | Marker | Behavior |
+|-------|--------|----------|
+| **Error** | `[error]` | Always causes lint failure (exit code 1) |
+| **Warning** | `[warning]` | Causes failure only with `--strict` |
+| **Info** | `[info]` | Informational — never causes failure |
 
 ---
 
@@ -108,9 +108,9 @@ unexpected locations.
 ### Human-readable (default)
 
 ```
-✗ [permissions-world-writable] usr/share/data.txt — file is world-writable
-⚠ [elf-textrel] usr/lib/libfoo.so — binary contains TEXTREL
-ℹ [dependency-needed-library] usr/bin/foo — needs libz.so.1
+[error] permissions-world-writable: file is world-writable (usr/share/data.txt)
+[warning] elf-textrel: binary contains TEXTREL (usr/lib/libfoo.so)
+[info] dependency-needed-library: needs libz.so.1 (usr/bin/foo)
 
 Summary: 1 error, 1 warning, 1 info
 ```

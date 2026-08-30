@@ -102,7 +102,7 @@ xpkg verify hello-2.12-1-x86_64.xp --key trusted-keyring.gpg
 
 | Result | Meaning |
 |--------|---------|
-| `✓ Valid signature (key A1B2C3D4)` | Signature is good, key is trusted |
+| `Valid signature (key A1B2C3D4)` | Signature is good, key is trusted |
 | `signature made by an unknown key` | Signature is valid but the key is not in your keyring |
 | `bad signature: ...` | File has been tampered with or signature is corrupt |
 
