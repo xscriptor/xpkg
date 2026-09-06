@@ -209,3 +209,5 @@ See [ROADMAP.md](ROADMAP.md) for the full development plan.
 ## License
 
 GPL-3.0-or-later — see [LICENSE](LICENSE).
+
+- Documentation: https://github.com/xlnux/wiki

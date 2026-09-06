@@ -170,3 +170,5 @@ gantt
 > - `v0.7.0` — Phase 7 complete (linting framework)
 > - `v0.9.0` — Phases 8–9 complete (repository tooling and integration)
 > - `v1.0.0` — Benchmarked, tested, production-ready
+
+Nota: ya no hay sincronizacion roadmap->issues (workflow eliminado).
